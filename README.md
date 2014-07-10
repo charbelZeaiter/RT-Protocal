@@ -25,23 +25,22 @@ for receiving datagrams from the MTP_Sender.
 2. *file.txt*: the name of the text file into which the text sent by the sender should be stored (this
 is the file that is being transferred from sender to receiver).
 
-**=== MTP_Sender Arguments ===**
+**=== MTP_Sender Arguments ===**  
 The MTP_Sender program accepts the following eight arguments (the last two arguments are used exclusively by my PLD module):  
 
 1. *RECEIVER_HOST_IP*: the IP address of the host machine on which the MTP_Receiver is
 running.
 2. *RECEIVER_PORT*: the port number on which MTP_Receiver is expecting a packet from the
 sender.
-3. *file.txt*: the name of the text file that has to be transferred from sender to receiver using your
+3. *file.txt*: the name of the text file that has to be transferred from sender to receiver using the
 reliable transport protocol.
-4. *MWS*: the maximum window size used by your MTP protocol in bytes.
+4. *MWS*: the maximum window size used by the MTP protocol in bytes.
 5. *MSS*: Maximum Segment Size which is the maximum amount of data (in bytes) carried in
 each MTP segment.
 6. *timeout*: the value of timeout in milliseconds.
 7. *pdrop*: the probability that a MTP packet which is ready to be transmitted will be dropped.
-This value must be between 0 and 1. For example if pdrop = 0.5, it means that 50% of the
-transmitted packets are dropped by the PLD.
-8. *seed*: The seed for your random number generator.
+This value must be between 0 and 1.
+8. *seed*: Random number generator seed.
 
 **=== PLD (Packet Loss and Delay) Module ===**
 A Sub program in the sender code wich simulates packet loss via dropped packets.
