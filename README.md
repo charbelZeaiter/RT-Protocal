@@ -1,12 +1,12 @@
 RT-Protocal
 ===========
 
-My Reliable Transport Protocal
+*My Reliable Transport Protocal*
 
 Using UDP as a base; I researched a small subset of TCP reliability features and built
 my own primitive reliable transport protocol. Note: multi-threading has been used.  
 
-=== Features ===  
+**=== Features ===**  
 
 - Initial Random segment sequence number.
 - Initial three way handshake for connection establishment.
@@ -17,8 +17,37 @@ my own primitive reliable transport protocol. Note: multi-threading has been use
 - Sender & receiver log generation.
 - Packet Loss Delay Module.
 
+**=== MTP_Receiver Arguments ===**  
+The MTP_Receiver program accepts the following two arguments:
 
-=== My Segment Structure ===
+1. *RECEIVER_PORT*: the port number on which the MTP_Receiver will open a UDP socket
+for receiving datagrams from the MTP_Sender.
+2. *file.txt*: the name of the text file into which the text sent by the sender should be stored (this
+is the file that is being transferred from sender to receiver).
+
+**=== MTP_Sender Arguments ===**
+The MTP_Sender program accepts the following eight arguments (the last two arguments are used exclusively by my PLD module):  
+
+1. *RECEIVER_HOST_IP*: the IP address of the host machine on which the MTP_Receiver is
+running.
+2. *RECEIVER_PORT*: the port number on which MTP_Receiver is expecting a packet from the
+sender.
+3. *file.txt*: the name of the text file that has to be transferred from sender to receiver using your
+reliable transport protocol.
+4. *MWS*: the maximum window size used by your MTP protocol in bytes.
+5. *MSS*: Maximum Segment Size which is the maximum amount of data (in bytes) carried in
+each MTP segment.
+6. *timeout*: the value of timeout in milliseconds.
+7. *pdrop*: the probability that a MTP packet which is ready to be transmitted will be dropped.
+This value must be between 0 and 1. For example if pdrop = 0.5, it means that 50% of the
+transmitted packets are dropped by the PLD.
+8. *seed*: The seed for your random number generator.
+
+**=== PLD (Packet Loss and Delay) Module ===**
+A Sub program in the sender code wich simulates packet loss via dropped packets.
+
+**=== My Segment Structure ===**  
+Segments are 163 bits in length and the below describes bits from left '0' to right '162'.
 
 1. SYN Field:
     - 1 bit in length.
@@ -57,7 +86,7 @@ my own primitive reliable transport protocol. Note: multi-threading has been use
     - I.e. this is just an extra field remaining in case the capabilities of the program where to be further expanded etc.
 
 
-=== Creation ===  
+**=== Creation ===**  
 
 By: Charbel Zeaiter  
 Year: 2013  
