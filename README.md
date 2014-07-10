@@ -42,7 +42,7 @@ each MTP segment.
 This value must be between 0 and 1.
 8. *seed*: Random number generator seed.
 
-**=== PLD (Packet Loss and Delay) Module ===**
+**=== PLD (Packet Loss and Delay) Module ===**  
 A Sub program in the sender code wich simulates packet loss via dropped packets.
 
 **=== My Segment Structure ===**  
