@@ -86,6 +86,5 @@ Segments are 163 bits in length and the below describes bits from left '0' to ri
 
 
 **=== Creation ===**  
-
 By: Charbel Zeaiter  
 Year: 2013  
